@@ -57,19 +57,19 @@ function App() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100">
-      <div className="flex flex-col items-center w-full max-w-md p-8 bg-white rounded-2xl shadow-2xl">
-        <div className="font-extrabold font-mono text-3xl mb-2 text-center ">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-black via-purple-500 to-amber-200 px-2 sm:px-0">
+      <div className="flex flex-col items-center w-full max-w-md p-4 sm:p-8 bg-white rounded-2xl shadow-2xl">
+        <div className="font-extrabold font-mono text-2xl sm:text-3xl mb-2 text-center ">
           Share Your Reflection
         </div>
-        <div className="text-md font-sans text-gray-500 text-center mb-6">
+        <div className="text-sm sm:text-md font-sans text-gray-500 text-center mb-6">
           Tell us what's on your mind, and we'll help you understand your emotions
         </div>
         <div className="w-full mb-2">
-          <textarea ref={inputref} value={inputValue} onChange={e => setInputValue(e.target.value.slice(0, max_len))} placeholder="I feel nervous about my job interview..." rows={6} className="w-full p-3 border-2 border-black/10 rounded-lg text-sm placeholder-gray-400 resize-none" maxLength={max_len} disabled={Loading}/>
+          <textarea ref={inputref} value={inputValue} onChange={e => setInputValue(e.target.value.slice(0, max_len))} placeholder="I feel nervous about my job interview..." rows={5} className="w-full p-2 sm:p-3 border-2 border-black/10 rounded-lg text-sm placeholder-gray-400 resize-none" maxLength={max_len} disabled={Loading}/>
           <div className="text-xs text-right text-gray-400 mt-1">{inputValue.length}/{max_len} characters</div>
         </div>
-        <button onClick={FetchResponse} className={`w-full py-3 mt-4 rounded-lg font-semibold text-white text-lg duration-300 flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-500 hover:opacity-80 hover:shadow-xl ${Loading ? "cursor-not-allowed" : ""}`}>
+        <button onClick={FetchResponse} className={`w-full py-2 sm:py-3 mt-4 rounded-lg font-semibold text-white text-sm sm:text-lg duration-300 flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-500 hover:opacity-80 hover:shadow-xl ${Loading ? "cursor-not-allowed" : ""}`}>
           {Loading ? (
             <span className="flex items-center gap-2">
               <ScaleLoader height={15} width={6} radius={10} color="#ffffff" /> Analyzing...
@@ -78,9 +78,9 @@ function App() {
         </button>
         
         <div className={`w-full mt-8 ${emotion && confidence ? "" : "hidden"}   `}>
-          <div className={`rounded-xl p-6 shadow-lg flex flex-col items-center font-bold min-h-[100px] ${getEmotionColor(emotion)}`} >
-            <div className="text-xl mb-2">🧠 {emotion}</div>
-            <div className="text-md font-mono">
+          <div className={`rounded-xl p-4 sm:p-6 shadow-lg flex flex-col items-center font-bold min-h-[80px] sm:min-h-[100px] ${getEmotionColor(emotion)}`} >
+            <div className="text-lg sm:text-xl mb-2">🧠 {emotion}</div>
+            <div className="text-sm sm:text-md font-mono">
               <span className="font-thin">Confidence:</span> {confidence}
             </div>
           </div>

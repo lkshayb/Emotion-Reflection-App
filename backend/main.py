@@ -12,7 +12,7 @@ def get_data():
     reflection = data.get('reflection')
     random_index = random.randint(1, len(dataset) - 1)
     return jsonify(dataset[random_index])
-
+    
 @app.route('/api/check', methods=['GET'])
 def check_api():
     return "hello"
